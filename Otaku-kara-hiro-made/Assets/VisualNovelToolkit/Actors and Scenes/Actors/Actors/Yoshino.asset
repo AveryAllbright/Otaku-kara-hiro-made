@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 826a91b253e644518aaebff7f6ac87c7, type: 3}
+  m_Name: Yoshino
+  actorName: Yoshino
+  textColor: {r: 1, g: 1, b: 0, a: 1}
+  baseActorState:
+    stateName: Normal
+    sizeInPercent: 120
+    dataArray:
+    - name: yoshino_body
+      parentname: Yoshino
+      nodeType: 0
+      posX: 0
+      posY: 0
+      posZ: 0
+      rotX: 0
+      rotY: 0
+      rotZ: 0
+      sclX: 0
+      sclY: 0
+      sclZ: 1
+      uiAtlasName: CharacterAtlas
+      texturePath: character/yoshino/body1
+      alpha: 1
+      show: 1
+      makePixelPerfect: 1
+  actorStates:
+  - stateName: Goodbye
+    sizeInPercent: 0
+    dataArray:
+    - name: yoshino_body
+      parentname: Yoshino
+      nodeType: 0
+      posX: 0
+      posY: 0
+      posZ: 0
+      rotX: 0
+      rotY: 0
+      rotZ: 0
+      sclX: 0
+      sclY: 0
+      sclZ: 0
+      uiAtlasName: CharacterAtlas
+      texturePath: character/yoshino/body2
+      alpha: 1
+      show: 1
+      makePixelPerfect: 1
+  portrait: {fileID: 0}

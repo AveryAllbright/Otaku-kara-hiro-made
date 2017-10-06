@@ -1,0 +1,594 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100000
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400000}
+  - 114: {fileID: 11400002}
+  - 114: {fileID: 11400004}
+  - 114: {fileID: 11400000}
+  - 114: {fileID: 11400006}
+  m_Layer: 0
+  m_Name: 0_Enter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100002
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400002}
+  - 114: {fileID: 11400018}
+  - 114: {fileID: 11400016}
+  - 114: {fileID: 11400012}
+  - 114: {fileID: 11400014}
+  m_Layer: 0
+  m_Name: 3_Next
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400004}
+  - 114: {fileID: 11400010}
+  m_Layer: 0
+  m_Name: START
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100006
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400006}
+  - 114: {fileID: 11400024}
+  - 114: {fileID: 11400020}
+  - 114: {fileID: 11400022}
+  m_Layer: 0
+  m_Name: 2_Exit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100008
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400008}
+  - 114: {fileID: 11400028}
+  m_Layer: 0
+  m_Name: 1_Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &100016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 400016}
+  - 114: {fileID: 11400026}
+  m_Layer: 0
+  m_Name: DialogScene1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400000
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400004}
+--- !u!4 &400002
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400004}
+--- !u!4 &400004
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 400000}
+  - {fileID: 400008}
+  - {fileID: 400006}
+  - {fileID: 400002}
+  m_Father: {fileID: 400016}
+--- !u!4 &400006
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400004}
+--- !u!4 &400008
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400004}
+--- !u!4 &400016
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100016}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 400004}
+  m_Father: {fileID: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 975cfacc31a7849be80a021902b666e6, type: 3}
+  m_Name: 
+  startAndActive: 1
+  useAlreadyCompiledCode: 0
+  m_CompiledInternalCodeAsset: {fileID: 0}
+  m_SoundName: BGM/komorebi-no-kaze
+  m_Delay: 0
+  loop: 0
+  m_SoundType: 0
+  m_SoundID: 0
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47680b47f85b04f9e99081b9f93c76d5, type: 3}
+  m_Name: 
+  startAndActive: 1
+  useAlreadyCompiledCode: 0
+  m_CompiledInternalCodeAsset: {fileID: 0}
+  sceneName: Scene1
+  method: 0
+  withFadeIn: 1
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4120c883c497440b4812d319db5f8853, type: 3}
+  m_Name: 
+  startAndActive: 1
+  useAlreadyCompiledCode: 0
+  m_CompiledInternalCodeAsset: {fileID: 0}
+  m_WaitSec: 2
+--- !u!114 &11400006
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e49bd8981f4484981c8ada2d41f725, type: 3}
+  m_Name: 
+  startAndActive: 1
+  useAlreadyCompiledCode: 0
+  m_CompiledInternalCodeAsset: {fileID: 0}
+  sendMessage: ShowSystemUI
+--- !u!114 &11400010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ad46eb4f1a904802ad2b620f8ca1de6, type: 3}
+  m_Name: 
+  startAndActive: 1
+  useAlreadyCompiledCode: 0
+  m_CompiledInternalCodeAsset: {fileID: 0}
+--- !u!114 &11400012
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e172ba17dfc2d4a4c85bea53dc7b9a28, type: 3}
+  m_Name: 
+  anyResourcePath: DialogScene2
+  parent: {fileID: 0}
+  m_ParentName: 
+--- !u!114 &11400014
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ca66e4665d114d5bba95c4f4b814437, type: 3}
+  m_Name: 
+  startAndActive: 1
+  useAlreadyCompiledCode: 0
+  m_CompiledInternalCodeAsset: {fileID: 0}
+  m_NextLevelName: DialogScene2
+--- !u!114 &11400016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4120c883c497440b4812d319db5f8853, type: 3}
+  m_Name: 
+  startAndActive: 1
+  useAlreadyCompiledCode: 0
+  m_CompiledInternalCodeAsset: {fileID: 0}
+  m_WaitSec: 2.01999998
+--- !u!114 &11400018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7898c0e2b1ef470ca1a5395e3ef7dea, type: 3}
+  m_Name: 
+  anyResourcePath: Effects/Blind
+  parent: {fileID: 100000, guid: 8ed40a73044e8460495be78ab38d552a, type: 2}
+  m_ParentName: 
+--- !u!114 &11400020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202260ecc43814eb0a4b7f089d4e70c9, type: 3}
+  m_Name: 
+  startAndActive: 1
+  useAlreadyCompiledCode: 0
+  m_CompiledInternalCodeAsset: {fileID: 0}
+  m_SoundType: 0
+  m_FadeOutSeconds: 3
+  m_SoundName: street
+--- !u!114 &11400022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03e49bd8981f4484981c8ada2d41f725, type: 3}
+  m_Name: 
+  startAndActive: 1
+  useAlreadyCompiledCode: 0
+  m_CompiledInternalCodeAsset: {fileID: 0}
+  sendMessage: HideSystemUI
+--- !u!114 &11400024
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4120c883c497440b4812d319db5f8853, type: 3}
+  m_Name: 
+  startAndActive: 1
+  useAlreadyCompiledCode: 0
+  m_CompiledInternalCodeAsset: {fileID: 0}
+  m_WaitSec: 1
+--- !u!114 &11400026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d95f8722ca64d4e109e7647dac1d72c8, type: 3}
+  m_Name: 
+  flagTable: {fileID: 11400000, guid: 1197d4ab0e195485da2e132a6a388bc9, type: 2}
+  startFromSave: 0
+  m_PlayAtStart: 1
+  m_PlayOnEnable: 0
+  m_PlayAndLoadFlags: 0
+  useScenarioScript: 0
+  scenarioScript: {fileID: 4900000, guid: 1e535ce9dc928409996427b58ef47507, type: 3}
+  startNode: {fileID: 11400010}
+  m_CacheCode: 0
+  saveInfo: {fileID: 11400000, guid: 4a812e04130a64f899543c3d6d4a13a3, type: 2}
+  compiledScriptFile: {fileID: 0}
+  useCompiledScript: 0
+  startFunc: start
+  playAndSaveFile: 0
+  scenarioName: 
+--- !u!114 &11400028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f14217f9018d42918c94c50b7d930c9, type: 3}
+  m_Name: 
+  startAndActive: 1
+  useAlreadyCompiledCode: 0
+  m_CompiledInternalCodeAsset: {fileID: 0}
+  m_NameTextBox: {fileID: 0}
+  m_ViNoTextBox: {fileID: 0}
+  m_NameHndName: TextBox_Name
+  m_DialogHndName: TextBox
+  xmlData: {fileID: 4900000, guid: 2a2c7d57748ef4a0bb6521ace299c498, type: 3}
+  dlgDataList:
+  - active: 0
+    dialogID: 0
+    show: 1
+    isName: 0
+    isBGM: 0
+    isSE: 0
+    isVoice: 0
+    isAnim: 0
+    isClearMessageAfter: 1
+    textBoxID: 0
+    nameText: 
+    dialogText: 
+    actionID: 1
+    bgmAudioKey: 
+    seAudioKey: 
+    voiceAudioKey: 
+    bgmAudioID: 0
+    seAudioID: 0
+    voiceAudioID: 0
+    scene:
+      sceneName: 
+      withFade: 0
+    enterActorEntries:
+    - actorName: Sachi
+      state: 
+      position: 3
+      withFade: 1
+    exitActorEntries:
+    - actorName: 
+      state: 
+      position: 0
+      withFade: 0
+  - active: 0
+    dialogID: 1
+    show: 1
+    isName: 1
+    isBGM: 0
+    isSE: 0
+    isVoice: 1
+    isAnim: 0
+    isClearMessageAfter: 1
+    textBoxID: 0
+    nameText: Sachi
+    dialogText: Hi ! I'm Sachi.
+    actionID: 0
+    bgmAudioKey: street
+    seAudioKey: 
+    voiceAudioKey: sakazaki_11_girl_korekuraide
+    bgmAudioID: 0
+    seAudioID: 0
+    voiceAudioID: 0
+    scene:
+      sceneName: 
+      withFade: 0
+    enterActorEntries: []
+    exitActorEntries: []
+  - active: 1
+    dialogID: 2
+    show: 1
+    isName: 1
+    isBGM: 0
+    isSE: 0
+    isVoice: 0
+    isAnim: 0
+    isClearMessageAfter: 1
+    textBoxID: 0
+    nameText: Sachi
+    dialogText: 
+    actionID: 1
+    bgmAudioKey: 
+    seAudioKey: 
+    voiceAudioKey: 
+    bgmAudioID: 0
+    seAudioID: 0
+    voiceAudioID: 0
+    scene:
+      sceneName: 
+      withFade: 0
+    enterActorEntries:
+    - actorName: Yoshino
+      state: 
+      position: 4
+      withFade: 1
+    exitActorEntries: []
+  - active: 0
+    dialogID: 3
+    show: 1
+    isName: 1
+    isBGM: 0
+    isSE: 0
+    isVoice: 0
+    isAnim: 0
+    isClearMessageAfter: 1
+    textBoxID: 0
+    nameText: Yoshino
+    dialogText: Oh ! Sachi.
+    actionID: 0
+    bgmAudioKey: street
+    seAudioKey: 
+    voiceAudioKey: 
+    bgmAudioID: 0
+    seAudioID: 0
+    voiceAudioID: 1
+    scene:
+      sceneName: 
+      withFade: 0
+    enterActorEntries: []
+    exitActorEntries: []
+  - active: 0
+    dialogID: 4
+    show: 1
+    isName: 1
+    isBGM: 0
+    isSE: 0
+    isVoice: 1
+    isAnim: 0
+    isClearMessageAfter: 1
+    textBoxID: 0
+    nameText: Sachi
+    dialogText: Oh ! I have to go !
+    actionID: 0
+    bgmAudioKey: street
+    seAudioKey: 
+    voiceAudioKey: sakazaki_03_female_koredesaigo
+    bgmAudioID: 0
+    seAudioID: 0
+    voiceAudioID: 2
+    scene:
+      sceneName: 
+      withFade: 0
+    enterActorEntries: []
+    exitActorEntries: []
+  - active: 0
+    dialogID: 5
+    show: 1
+    isName: 1
+    isBGM: 0
+    isSE: 0
+    isVoice: 0
+    isAnim: 0
+    isClearMessageAfter: 1
+    textBoxID: 0
+    nameText: Yoshino
+    dialogText: Bye Bye !
+    actionID: 0
+    bgmAudioKey: 
+    seAudioKey: 
+    voiceAudioKey: Voice4
+    bgmAudioID: 0
+    seAudioID: 0
+    voiceAudioID: 3
+    scene:
+      sceneName: 
+      withFade: 0
+    enterActorEntries: []
+    exitActorEntries: []
+  - active: 0
+    dialogID: 6
+    show: 1
+    isName: 0
+    isBGM: 0
+    isSE: 0
+    isVoice: 0
+    isAnim: 0
+    isClearMessageAfter: 1
+    textBoxID: 0
+    nameText: 
+    dialogText: 
+    actionID: 2
+    bgmAudioKey: 
+    seAudioKey: 
+    voiceAudioKey: 
+    bgmAudioID: 0
+    seAudioID: 0
+    voiceAudioID: 0
+    scene:
+      sceneName: 
+      withFade: 0
+    enterActorEntries: []
+    exitActorEntries:
+    - actorName: Sachi
+      state: 
+      position: 0
+      withFade: 1
+    - actorName: Yoshino
+      state: 
+      position: 0
+      withFade: 1
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 100016}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1
