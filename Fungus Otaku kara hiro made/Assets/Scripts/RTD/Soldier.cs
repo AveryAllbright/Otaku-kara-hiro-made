@@ -33,7 +33,12 @@ public class Soldier : MonoBehaviour {
 
 		if(hp < 0)
 		{
-			//die
+			Die ();
 		}
+	}
+
+	private void Die()
+	{
+		
 	}
 }
