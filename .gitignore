@@ -1,7 +1,7 @@
+
 ###
 # Unity folders and files
 ###
-[Aa]ssets/AssetStoreTools*
 [Bb]uild/
 [Ll]ibrary/
 [Ll]ocal[Cc]ache/
@@ -36,6 +36,6 @@ sysinfo.txt
 ._*
 .Spotlight-V100
 .Trashes
-Icon?
 ehthumbs.db
 Thumbs.db
+
