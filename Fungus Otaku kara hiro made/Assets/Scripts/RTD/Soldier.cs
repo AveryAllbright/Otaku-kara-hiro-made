@@ -27,11 +27,11 @@ public class Soldier : MonoBehaviour {
 		//if in range of target, change target to the next node
 	}
 
-	void TakeDamage(int damage)
+	public void TakeDamage(int damage)
 	{
 		hp -= damage;
 
-		if(hp < 0)
+		if(hp <= 0)
 		{
 			Die ();
 		}

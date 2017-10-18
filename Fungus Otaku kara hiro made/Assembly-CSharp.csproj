@@ -517,8 +517,10 @@
      <Compile Include="Assets\Fungus\Thirdparty\Usfxr\Scripts\SfxrSynth.cs" />
      <Compile Include="Assets\Fungus\Thirdparty\iTween\iTween.cs" />
      <Compile Include="Assets\FungusExamples\FungusLua\Bindings\CustomScript.cs" />
+     <Compile Include="Assets\Scripts\RTD\Goal.cs" />
      <Compile Include="Assets\Scripts\RTD\RTDmanager.cs" />
      <Compile Include="Assets\Scripts\RTD\Soldier.cs" />
+     <Compile Include="Assets\Scripts\RTD\Tower.cs" />
      <None Include="Assets\Fungus\Thirdparty\FungusLua\Thirdparty\JSON\readme.txt" />
      <None Include="Assets\FungusExamples\FungusLua\Localization\stringtable.txt" />
      <None Include="Assets\Fungus\Docs\README.txt" />

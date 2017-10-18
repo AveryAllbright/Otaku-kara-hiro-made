@@ -21,5 +21,38 @@ public class RTDmanager : MonoBehaviour
 	void Update () 
 	{
 		timer += Time.deltaTime;
+		RadiusCheck();
+	}
+
+	// Check if soldiers are in the radius of towers
+	void RadiusCheck() {
+		foreach (GameObject sol in soldiers) {
+			Soldier s = sol.GetComponent<Soldier>();
+			foreach (GameObject tow in towers) {
+				Tower t = tow.GetComponent<Tower>();
+				bool inRadius = (Vector3.Distance(s.transform.position, t.transform.position) <= t.Radius);
+				if (t.soldierQueue.Contains(s)) {
+					if (!inRadius) t.soldierQueue.Dequeue();
+				} else if (inRadius) {
+					t.soldierQueue.Enqueue(s);
+				}
+			}
+		}
+	}
+
+	// Unimplemented methods from the diagram
+	// Method to place a soldier
+	void SoldierPlacement() {
+
+	}
+
+	// Method for losing, called when you run out of time
+	void Lose() {
+
+	}
+
+	// Method for winning, called when you get a soldier to the goal
+	void Win() {
+
 	}
 }
