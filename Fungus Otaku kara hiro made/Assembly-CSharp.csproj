@@ -517,6 +517,7 @@
      <Compile Include="Assets\Fungus\Thirdparty\Usfxr\Scripts\SfxrSynth.cs" />
      <Compile Include="Assets\Fungus\Thirdparty\iTween\iTween.cs" />
      <Compile Include="Assets\FungusExamples\FungusLua\Bindings\CustomScript.cs" />
+     <Compile Include="Assets\Scripts\RTD\ExitScript.cs" />
      <Compile Include="Assets\Scripts\RTD\Goal.cs" />
      <Compile Include="Assets\Scripts\RTD\RTDmanager.cs" />
      <Compile Include="Assets\Scripts\RTD\Soldier.cs" />
