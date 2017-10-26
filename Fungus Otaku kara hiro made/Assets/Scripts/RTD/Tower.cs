@@ -8,17 +8,28 @@ public class Tower : MonoBehaviour {
 	private float fireTime;
 	private int damage;
 	private float radius;
-	private RTDmanager rtdmanager;
 
-	public GameObject bullet;
-	public Queue<Soldier> soldierQueue;
+	private GameObject bullet;					// Bullet that has been shot
+	private UnitScript shotSolider;				// Soldier that has been shot at
+	private float bulletLifetime;				// Amount of time it takes a bullet to hit a soldier
+	private float bulletTravelTime; 			// Amount of time bullet has been travelling
+	public GameObject bulletPrefab;
+	public GameObject radiusPrefab;
+	public List<UnitScript> unitList;			// List of units in the tower's radius
 	public float Radius{get{ return radius; }}
 
 	// Use this for initialization
 	void Start () {
-		rtdmanager = GameObject.FindGameObjectWithTag ("RTDmanager").GetComponent<RTDmanager> ();
+		radius = 6.5f;
+		damage = 2;
+		rateOfFire = 1.2f;
+		bulletLifetime = rateOfFire / 4f;
 		fireTime = rateOfFire;
-		soldierQueue = new Queue<Soldier>();
+		unitList = new List<UnitScript>();
+
+		// Create a circle for our radius
+		GameObject radiusObject = Instantiate (radiusPrefab, transform.position, Quaternion.identity);
+		radiusObject.transform.localScale = new Vector3(radius * 2f, radius * 2f, 1);
 	}
 	
 	// Update is called once per frame
@@ -26,16 +37,36 @@ public class Tower : MonoBehaviour {
 		// fireTime starts at rateOfFire, and decreases by deltaTime each update, so the tower fires when fireTime is 0
 		fireTime -= Time.deltaTime;
 
-		// If there is a soldier in the queue and the tower is ready to fire, it will shoot the soldier at the front of the queue
-		if (soldierQueue.Count != 0 && fireTime <= 0) {
+		// If there is a soldier in the queue and the tower is ready to fire, it will shoot the soldier at the front of the list
+		if (unitList.Count != 0 && fireTime <= 0) {
 			fireTime = rateOfFire;
-			Shoot(soldierQueue.Peek());
+			Shoot(unitList[0]);
+		}
+
+		// If a bullet has been fired, move it to the shot soldier
+		if (bullet != null) 
+		{
+			// LERP the bullet to the shot soldier
+			bulletTravelTime += Time.deltaTime;
+			float travelPercentage = bulletTravelTime / bulletLifetime;
+			bullet.transform.position = Vector3.Lerp (transform.position, shotSolider.transform.position, travelPercentage);
+
+			// If our travelPercentage is 1, the bullet has hit
+			if (travelPercentage >= 1f) 
+			{
+				// Destroy our bullet, have the soldier take damage, and reset our bulletTravelTime
+				Destroy (bullet);
+				bullet = null;
+				shotSolider.TakeDamage (damage);
+				shotSolider = null;
+				bulletTravelTime = 0;
+			}
 		}
 	}
 
 	// Method that shoots a soldier
-	void Shoot(Soldier s) {
-		// Doesn't shoot a bullet yet, just does damage
-		s.TakeDamage(damage);
+	void Shoot(UnitScript s) {
+		bullet = Instantiate (bulletPrefab, transform.position, Quaternion.identity);
+		shotSolider = s;
 	}
 }

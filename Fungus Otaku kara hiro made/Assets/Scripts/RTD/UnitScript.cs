@@ -48,6 +48,15 @@ public class UnitScript : MonoBehaviour {
         {
 			if (currTarget == path.Count - 1)
             {
+				foreach (GameObject obj in unitManager.GetComponent<RTDmanager>().towers) 
+				{
+					Tower tower = obj.GetComponent<Tower>();
+					if (tower.unitList.Contains (this)) 
+					{
+						tower.unitList.Remove(this);
+					}
+				}
+				unitManager.GetComponent<RTDmanager>().soldiers.Remove(gameObject);
                 Destroy(gameObject);
             }
             else
@@ -57,11 +66,25 @@ public class UnitScript : MonoBehaviour {
         }
     }
 
+	public void TakeDamage(int damage)
+	{
+		health -= damage;
+	}
+
     void checkIfDead()
     {
         if(health <= 0)
         {
-            //dosomething
+			foreach (GameObject obj in unitManager.GetComponent<RTDmanager>().towers) 
+			{
+				Tower tower = obj.GetComponent<Tower>();
+				if (tower.unitList.Contains (this)) 
+				{
+					tower.unitList.Remove(this);
+				}
+			}
+			unitManager.GetComponent<RTDmanager>().soldiers.Remove(gameObject);
+			Destroy(gameObject);
         }
     }
 }
