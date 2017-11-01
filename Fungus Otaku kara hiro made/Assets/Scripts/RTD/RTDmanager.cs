@@ -7,6 +7,10 @@ public enum soldierType { Light, Medium, Heavy };
 
 public class RTDmanager : MonoBehaviour 
 {
+	public GameObject flowchartObject;
+	private Fungus.Flowchart flowchart;
+
+
 	public GameObject soldierPrefab;
 	public GameObject spritePrefab;
 	public GameObject towerPrefab;
@@ -16,15 +20,19 @@ public class RTDmanager : MonoBehaviour
 	public soldierType currType;
 	public List<GameObject> towers;
 	public List<GameObject> soldiers;
+	public int totalSoldiers = 0;
+	public float spawnCoolDown = 1.0f;
+	public bool canSpawn = true;
 	private float timer;
 
 	// Use this for initialization
 	void Start ()
 	{
+		flowchart = flowchartObject.GetComponent<Fungus.Flowchart> ();
 		soldiers = new List<GameObject> ();
 		timer = 0;
 		int[] pathToBuild = {33, 23, 20, 10};
-		int[] towerPositions = { 28 };
+		int[] towerPositions = { 28, 12 };
 		BuildPath(pathToBuild);
 		AddTowers (towerPositions);
 		createLines();
@@ -33,14 +41,26 @@ public class RTDmanager : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		timer += Time.deltaTime;
-		RadiusCheck();
-		SoldierPlacement ();
-		//for(int i = 0; i < currPath.Count - 1; i++) {
-			//Debug.DrawLine (currPath [i].transform.position, currPath [i + 1].transform.position); }
-			
+		if(flowchart.GetBooleanVariable("isRTDrunning"))
+		{
+			timer += Time.deltaTime;
+			if (!canSpawn) {
+				spawnCoolDown += Time.deltaTime;
+				if (spawnCoolDown >= 1.5f) { spawnCoolDown = 0.0f; canSpawn = true;}
+			}
+			RadiusCheck();
+			SoldierPlacement ();
+			if (Input.GetKeyDown(KeyCode.E) || totalSoldiers == 12 || timer >= 45)
+			{
+				Lose ();
+			}		
+		}
 	}
-
+		
+	/// <summary>
+	/// Adds the towers.
+	/// </summary>
+	/// <param name="towerPositions">Tower positions.</param>
 	void AddTowers(int[] towerPositions) 
 	{
 		for (int i = 0; i < towerPositions.Length; i++) 
@@ -51,6 +71,9 @@ public class RTDmanager : MonoBehaviour
 		
 
 	// Check if soldiers are in the radius of towers
+	/// <summary>
+	/// Radiuses the check.
+	/// </summary>
 	void RadiusCheck() {
 
 		// Loop through the soldiers and see what tower's they are in
@@ -73,23 +96,32 @@ public class RTDmanager : MonoBehaviour
 		}
 	}
 
-	// Unimplemented methods from the diagram
-	// Method to place a soldier
+
+	/// <summary>
+	/// Unimplemented methods from the diagram
+	/// Method to place a soldier
+	/// </summary>
 	void SoldierPlacement() {
-		if (Input.GetKeyDown(KeyCode.A))
+		if (Input.GetKeyDown(KeyCode.A) && canSpawn && totalSoldiers < 12)
 		{
 			currType = soldierType.Light;
 			soldiers.Add(Instantiate (soldierPrefab, currPath [0].transform.position, Quaternion.identity));
+			totalSoldiers++;
+			canSpawn = false;
 		}
-		if (Input.GetKeyDown(KeyCode.S))
+		if (Input.GetKeyDown(KeyCode.S) && canSpawn && totalSoldiers < 12)
 		{
 			currType = soldierType.Medium;
 			soldiers.Add(Instantiate (soldierPrefab, currPath [0].transform.position, Quaternion.identity));
+			totalSoldiers++;
+			canSpawn = false;
 		}
-		if (Input.GetKeyDown(KeyCode.D))
+		if (Input.GetKeyDown(KeyCode.D) && canSpawn && totalSoldiers < 12)
 		{
 			currType = soldierType.Heavy;
 			soldiers.Add(Instantiate (soldierPrefab, currPath [0].transform.position, Quaternion.identity));
+			totalSoldiers++;
+			canSpawn = false;
 		}
 	}
 
@@ -99,8 +131,10 @@ public class RTDmanager : MonoBehaviour
 			currPath.Add (nodes [nodeIndexes[i]]);
 		}
 	}
-
-	//Create a list that stores Gameobjects with 1x1 cube sprites equal to the amount of nodes - 1 that are being used in the path
+		
+	/// <summary>
+	/// Create a list that stores Gameobjects with 1x1 cube sprites equal to the amount of nodes - 1 that are being used in the path
+	/// </summary>
 	void createLines()
 	{
 		lines = new GameObject[currPath.Count];
@@ -138,8 +172,10 @@ public class RTDmanager : MonoBehaviour
 	}//end createLines
 
 	// Method for losing, called when you run out of time
-	void Lose() {
-
+	void Lose() 
+	{
+		flowchart.SetBooleanVariable("isRTDrunning", false);
+		GameObject.Find (flowchart.GetStringVariable ("CurrentFlowchart")).GetComponent<Fungus.Flowchart> ().ExecuteBlock ("EndRTD");
 	}
 
 	// Method for winning, called when you get a soldier to the goal

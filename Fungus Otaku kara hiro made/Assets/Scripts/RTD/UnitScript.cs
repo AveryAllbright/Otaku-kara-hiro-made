@@ -20,17 +20,17 @@ public class UnitScript : MonoBehaviour {
 		if (type == soldierType.Light)
         {
             speed = 3;
-            health = 1;
+            health = 2;
         }
 		if (type == soldierType.Medium)
         {
             speed = 2;
-            health = 1;
+            health = 3;
         }
 		if (type == soldierType.Heavy)
         {
             speed = 1;
-            health = 1;
+            health = 4;
         }
     }
 	
