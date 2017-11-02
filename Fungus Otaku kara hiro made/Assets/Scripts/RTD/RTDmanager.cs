@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum soldierType { Light, Medium, Heavy };
 
@@ -14,13 +15,17 @@ public class RTDmanager : MonoBehaviour
 	public GameObject soldierPrefab;
 	public GameObject spritePrefab;
 	public GameObject towerPrefab;
+	public GameObject basePrefab;
 	public GameObject[] nodes;
 	public GameObject[] lines;
 	public List<GameObject> currPath;
 	public soldierType currType;
 	public List<GameObject> towers;
 	public List<GameObject> soldiers;
+	public Text timerText;
+	public Text unitCountText;
 	public int totalSoldiers = 0;
+	public int maxSoldiers = 12;
 	public float spawnCoolDown = 1.0f;
 	public bool canSpawn = true;
 	private float timer;
@@ -30,7 +35,7 @@ public class RTDmanager : MonoBehaviour
 	{
 		flowchart = flowchartObject.GetComponent<Fungus.Flowchart> ();
 		soldiers = new List<GameObject> ();
-		timer = 0;
+		timer = 45;
 		int[] pathToBuild = {33, 23, 20, 10};
 		int[] towerPositions = { 28, 12 };
 		BuildPath(pathToBuild);
@@ -43,14 +48,16 @@ public class RTDmanager : MonoBehaviour
 	{
 		if(flowchart.GetBooleanVariable("isRTDrunning"))
 		{
-			timer += Time.deltaTime;
+			timer -= Time.deltaTime;
+			timerText.text = "Timer: " + (int)timer;
+
 			if (!canSpawn) {
 				spawnCoolDown += Time.deltaTime;
 				if (spawnCoolDown >= 1.5f) { spawnCoolDown = 0.0f; canSpawn = true;}
 			}
 			RadiusCheck();
 			SoldierPlacement ();
-			if (Input.GetKeyDown(KeyCode.E) || totalSoldiers == 12 || timer >= 45)
+			if (Input.GetKeyDown(KeyCode.E) || totalSoldiers == maxSoldiers || timer <= 0)
 			{
 				Lose ();
 			}		
@@ -123,6 +130,7 @@ public class RTDmanager : MonoBehaviour
 			totalSoldiers++;
 			canSpawn = false;
 		}
+		unitCountText.text = totalSoldiers + " / " + maxSoldiers + " Units Spawned";
 	}
 
 	//Method for building a path out of the grid of nodes. 
@@ -130,6 +138,7 @@ public class RTDmanager : MonoBehaviour
 		for (int i = 0; i < nodeIndexes.Length; i++) {
 			currPath.Add (nodes [nodeIndexes[i]]);
 		}
+		Instantiate (basePrefab, currPath [nodeIndexes.Length - 1].transform.position, Quaternion.identity);
 	}
 		
 	/// <summary>

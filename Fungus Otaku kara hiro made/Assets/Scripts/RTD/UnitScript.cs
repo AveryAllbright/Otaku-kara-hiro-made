@@ -10,6 +10,7 @@ public class UnitScript : MonoBehaviour {
 	public List<GameObject> path;
     public GameObject unitManager;
     public int currTarget;
+	public List<Sprite> sprites;
     soldierType type;
 	// Use this for initialization
 	void Start () {
@@ -21,16 +22,19 @@ public class UnitScript : MonoBehaviour {
         {
             speed = 3;
             health = 2;
+			gameObject.GetComponent<SpriteRenderer> ().sprite = sprites [0];
         }
 		if (type == soldierType.Medium)
         {
             speed = 2;
             health = 3;
+			gameObject.GetComponent<SpriteRenderer> ().sprite = sprites [1];
         }
 		if (type == soldierType.Heavy)
         {
             speed = 1;
             health = 4;
+			gameObject.GetComponent<SpriteRenderer> ().sprite = sprites [2];
         }
     }
 	
