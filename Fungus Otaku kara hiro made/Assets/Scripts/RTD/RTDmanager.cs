@@ -28,6 +28,7 @@ public class RTDmanager : MonoBehaviour
 	public int maxSoldiers = 12;
 	public float spawnCoolDown = 1.0f;
 	public bool canSpawn = true;
+    public bool win = false;
 	private float timer;
 
 	// Use this for initialization
@@ -60,7 +61,11 @@ public class RTDmanager : MonoBehaviour
 			if (Input.GetKeyDown(KeyCode.E) || totalSoldiers == maxSoldiers || timer <= 0)
 			{
 				Lose ();
-			}		
+			}
+            if(win)
+            {
+                Win();
+            }
 		}
 	}
 		
@@ -184,11 +189,15 @@ public class RTDmanager : MonoBehaviour
 	void Lose() 
 	{
 		flowchart.SetBooleanVariable("isRTDrunning", false);
+        flowchart.SetBooleanVariable("bWon", false);
 		GameObject.Find (flowchart.GetStringVariable ("CurrentFlowchart")).GetComponent<Fungus.Flowchart> ().ExecuteBlock ("EndRTD");
 	}
 
 	// Method for winning, called when you get a soldier to the goal
-	void Win() {
-
+	void Win() 
+    {   
+        flowchart.SetBooleanVariable("isRTDrunning", false);
+        flowchart.SetBooleanVariable("bWon", true);
+		GameObject.Find (flowchart.GetStringVariable ("CurrentFlowchart")).GetComponent<Fungus.Flowchart> ().ExecuteBlock ("EndRTD");
 	}
 }

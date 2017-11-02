@@ -20,20 +20,20 @@ public class UnitScript : MonoBehaviour {
         currTarget = 1;
 		if (type == soldierType.Light)
         {
-            speed = 3;
+            speed = 4;
             health = 2;
 			gameObject.GetComponent<SpriteRenderer> ().sprite = sprites [0];
         }
 		if (type == soldierType.Medium)
         {
-            speed = 2;
-            health = 3;
+            speed = 3;
+            health = 4;
 			gameObject.GetComponent<SpriteRenderer> ().sprite = sprites [1];
         }
 		if (type == soldierType.Heavy)
         {
-            speed = 1;
-            health = 4;
+            speed = 2;
+            health = 5;
 			gameObject.GetComponent<SpriteRenderer> ().sprite = sprites [2];
         }
     }
@@ -61,6 +61,7 @@ public class UnitScript : MonoBehaviour {
 					}
 				}
 				unitManager.GetComponent<RTDmanager>().soldiers.Remove(gameObject);
+                unitManager.GetComponent<RTDmanager>().win = true;
                 Destroy(gameObject);
             }
             else

@@ -21,7 +21,7 @@ public class Tower : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		radius = 6.5f;
-		damage = 2;
+		damage = 1;
 		rateOfFire = 1.2f;
 		bulletLifetime = rateOfFire / 4f;
 		fireTime = rateOfFire;
